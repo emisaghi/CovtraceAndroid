@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "254374963413",
+    "firebase_url": "https://covtrace-6b9d9.firebaseio.com",
+    "project_id": "covtrace-6b9d9",
+    "storage_bucket": "covtrace-6b9d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:254374963413:android:c531b61cae60a3e0a9da5c",
+        "android_client_info": {
+          "package_name": "com.covtracers.covtrace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "254374963413-r53s3nliq7j99vh960b9cg86q63rbbf1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUzAJW0cFwXtVl-ujNI_Av-DIQQCwcceI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "254374963413-r53s3nliq7j99vh960b9cg86q63rbbf1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "254374963413-s08jie620gfe16q1avfv2ndpu1lpncaj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "covtracer.Covtrace"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
