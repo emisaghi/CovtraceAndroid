@@ -20,6 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".data.mydashobard" />
+        <activity android:name=".data.mydashboard" />
+        <activity android:name=".dashboard" />
+        <activity android:name=".status" />
     </application>
 
 </manifest>
