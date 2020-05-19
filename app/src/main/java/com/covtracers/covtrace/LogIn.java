@@ -115,7 +115,6 @@ public class LogIn extends AppCompatActivity {
                 });
             }
         });
-
     }
 
     protected void onCreate(Bundle savedInstanceState) {
