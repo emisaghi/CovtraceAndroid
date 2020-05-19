@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "254374963413-d2kuoclmquh6gkv4503uq3k9k4hrubp5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.covtracers.covtrace",
+            "certificate_hash": "82484338bcc6eea2311f413ce1456e17c3f4a4b8"
+          }
+        },
+        {
           "client_id": "254374963413-r53s3nliq7j99vh960b9cg86q63rbbf1.apps.googleusercontent.com",
           "client_type": 3
         }
