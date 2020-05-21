@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Map">
+    tools:context=".mapActivity">
 
-<!--    <Button-->
-<!--        android:id="@+id/toDashboard"-->
-<!--        android:layout_width="261dp"-->
-<!--        android:layout_height="96dp"-->
-<!--        android:text="to Dashboard"-->
-<!--        tools:layout_editor_absoluteX="726dp"-->
-<!--        tools:layout_editor_absoluteY="-1dp"></Button>-->
+    <Button
+        android:id="@+id/toDashboard"
+        android:layout_width="0dp"
+        android:layout_height="96dp"
+        android:text="to Dashboard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mapActivity"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"></fragment>
+        android:id="@+id/mapActivity"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="315dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/toDashboard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></fragment>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
