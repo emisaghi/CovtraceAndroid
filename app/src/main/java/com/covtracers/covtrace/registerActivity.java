@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Register extends AppCompatActivity {
+public class registerActivity extends AppCompatActivity {
 
     private static final String TAG = "EmailPassword";
     EditText emailText, passwordText, confirmPasswordText;
@@ -63,7 +63,7 @@ public class Register extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), LogIn.class));
+                startActivity(new Intent(getApplicationContext(), logInActivity.class));
                 finish();
             }
         });
@@ -98,14 +98,14 @@ public class Register extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, go to the map
                             Log.d(TAG, "createUserWithEmail:success");
-                            Toast.makeText(Register.this, "User Created.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(registerActivity.this, "User Created.", Toast.LENGTH_SHORT).show();
                             FirebaseUser user = fAuth.getCurrentUser();
-                            startActivity(new Intent(getApplicationContext(), Map.class));
+                            startActivity(new Intent(getApplicationContext(), mapActivity.class));
                         } else {
                             // If sign in fails, display a message to the user.
                             emailText.setError("createUserWithEmail:failure " + task.getException());
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(Register.this, "Authentication failed.",
+                            Toast.makeText(registerActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
