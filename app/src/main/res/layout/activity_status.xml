@@ -11,7 +11,7 @@
         android:id="@+id/textView2"
         android:layout_width="238dp"
         android:layout_height="31dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="24dp"
         android:text="MY COVID-19 STATUS "
         android:textAllCaps="true"
         android:textSize="24sp"
@@ -22,19 +22,20 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="414dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="410dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="28dp"
         android:text="Have you been tested for COVID-19"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="414dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="204dp"
+        android:id="@+id/no1"
+        android:layout_width="411dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="124dp"
         android:text="No"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -42,23 +43,21 @@
         app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/question2"
         android:layout_width="414dp"
-        android:layout_height="58dp"
-        android:layout_marginBottom="156dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="40dp"
         android:text="What was the result"
-        app:layout_constraintBottom_toTopOf="@+id/hyperlink"
+        app:layout_constraintBottom_toTopOf="@+id/no2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="414dp"
-        android:layout_height="58dp"
-        android:layout_marginBottom="100dp"
+        android:id="@+id/yes2"
+        android:layout_width="421dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="176dp"
         android:text="Yes"
         app:layout_constraintBottom_toTopOf="@+id/hyperlink"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,24 +65,24 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="414dp"
-        android:layout_height="58dp"
-        android:layout_marginBottom="44dp"
+        android:id="@+id/no2"
+        android:layout_width="413dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="132dp"
         android:text="No"
         app:layout_constraintBottom_toTopOf="@+id/hyperlink"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="414dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="148dp"
+        android:id="@+id/yes1"
+        android:layout_width="410dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="92dp"
         android:text="Yes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView2" />
 
@@ -91,7 +90,7 @@
         android:id="@+id/hyperlink"
         android:layout_width="169dp"
         android:layout_height="43dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="48dp"
         android:text="Click here for more info"
         app:layout_constraintBottom_toTopOf="@+id/submit_data"
         app:layout_constraintEnd_toEndOf="parent"
