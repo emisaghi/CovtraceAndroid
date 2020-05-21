@@ -5,11 +5,18 @@
     android:layout_height="match_parent"
     tools:context=".Map">
 
-    <Button
-        android:id="@+id/toDashboard"
-        android:layout_width="261dp"
-        android:layout_height="96dp"
-        android:text="to Dashobard"
-        tools:layout_editor_absoluteX="726dp"
-        tools:layout_editor_absoluteY="-1dp" />
+<!--    <Button-->
+<!--        android:id="@+id/toDashboard"-->
+<!--        android:layout_width="261dp"-->
+<!--        android:layout_height="96dp"-->
+<!--        android:text="to Dashboard"-->
+<!--        tools:layout_editor_absoluteX="726dp"-->
+<!--        tools:layout_editor_absoluteY="-1dp"></Button>-->
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"></fragment>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
