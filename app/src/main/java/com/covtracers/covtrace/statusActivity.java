@@ -10,6 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,8 +21,10 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
 public class statusActivity extends AppCompatActivity {
     private static final String TAG = "Database";
@@ -35,13 +41,12 @@ public class statusActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status);
         hyperLink = findViewById(R.id.hyperlink);
-
         submit = findViewById(R.id.submit_data);
         yes1 = findViewById(R.id.yes1);
         yes2 = findViewById(R.id.yes2);
         no1 = findViewById(R.id.no1);
         no2 = findViewById(R.id.no2);
-        Button q2 = findViewById(R.id.question2);
+        final Button q2 = findViewById(R.id.question2);
         final boolean[] test = new boolean[1];
         final boolean[] result = new boolean[1];
         yes1.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +54,7 @@ public class statusActivity extends AppCompatActivity {
             public void onClick(View v) {
                 test[0] = true;
                 result[0] = false;
+                q2.setText("What was the result?");
             }
         });
         yes2.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +69,7 @@ public class statusActivity extends AppCompatActivity {
             public void onClick(View v) {
                 test[0] = false;
                 result[0] = false;
-                q2.setText("Do you habe any symptoms");
+                q2.setText("Do you have any symptoms?");
             }
         });
         no2.setOnClickListener(new View.OnClickListener() {
@@ -82,8 +88,12 @@ public class statusActivity extends AppCompatActivity {
                 }else{
                     city.put("status", "negative");
                 }
-                city.put("state", "CA");
-                city.put("country", "USA");
+
+                Calendar cal = Calendar.getInstance();
+                SimpleDateFormat format = new SimpleDateFormat("HH:mm aa");
+                String time = format.format(cal.getTime());
+                String formatted = DateFormat.getDateInstance(DateFormat.SHORT).format(cal.getTime()) +", " + time;
+                city.put("date-time", formatted);
                 db.collection("users").document("PeerID")
                         .set(city)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
