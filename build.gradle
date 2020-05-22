@@ -23,10 +23,10 @@ allprojects {
         maven{
             url "https://maven.google.com"
         }
-        //maven {
-          //  url "https://p2pkit.io/maven2"
-        //}
-        
+        maven {
+            url "http://p2pkit.io/maven2"
+        }
+
     }
 }
 
