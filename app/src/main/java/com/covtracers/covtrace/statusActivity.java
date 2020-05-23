@@ -70,6 +70,7 @@ public class statusActivity extends AppCompatActivity {
                 test[0] = false;
                 result[0] = false;
                 q2.setText("Do you have any symptoms?");
+                //q2.setText("Do you have any symptoms");
             }
         });
         no2.setOnClickListener(new View.OnClickListener() {

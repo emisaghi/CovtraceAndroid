@@ -8,6 +8,7 @@
 
     <!-- We might need to declare ACCESS_COARSE_LOCATION instead if users are on Android 9 or lower. -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -19,6 +20,9 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBhAom9odbySU_4xIStHEtIfzBUt_0ESD0" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
         <activity android:name=".mapActivity" />
         <activity android:name=".registerActivity" />
         <activity android:name=".logInActivity">
