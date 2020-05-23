@@ -1,3 +1,11 @@
+// Created by Covtrace on 2020-05-05.
+// Copyright © 2020 Covtrace. All rights reserved.
+// This file is subject to the terms and conditions defined in
+// file 'LICENSE.txt', which is part of this source code package.
+
+//  logInActivity.java
+//  Covtrace
+
 package com.covtracers.covtrace;
 
 import android.app.Dialog;
