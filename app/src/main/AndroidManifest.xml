@@ -1,8 +1,21 @@
+<!-- Created by Covtrace on 2020-05-05.
+     Copyright © 2020 Covtrace. All rights reserved.
+     This file is subject to the terms and conditions defined in
+     file 'LICENSE.txt', which is part of this source code package.
+
+     Covtrace -->
+
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.covtracers.covtrace">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <!-- We might need to declare ACCESS_COARSE_LOCATION instead if users are on Android 9 or lower. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -14,6 +27,9 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBhAom9odbySU_4xIStHEtIfzBUt_0ESD0" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
         <activity android:name=".mapActivity" />
         <activity android:name=".registerActivity" />
         <activity android:name=".logInActivity">

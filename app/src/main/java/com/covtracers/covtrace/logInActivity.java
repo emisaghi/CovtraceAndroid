@@ -1,5 +1,14 @@
+// Created by Covtrace on 2020-05-05.
+// Copyright © 2020 Covtrace. All rights reserved.
+// This file is subject to the terms and conditions defined in
+// file 'LICENSE.txt', which is part of this source code package.
+
+//  logInActivity.java
+//  Covtrace
+
 package com.covtracers.covtrace;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -121,4 +130,5 @@ public class logInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
     }
+
 }

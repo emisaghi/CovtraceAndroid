@@ -1,3 +1,11 @@
+// Created by Covtrace on 2020-05-05.
+// Copyright © 2020 Covtrace. All rights reserved.
+// This file is subject to the terms and conditions defined in
+// file 'LICENSE.txt', which is part of this source code package.
+
+//  build.gradle
+//  Covtrace
+
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'  // Google Services plugin
 
@@ -44,4 +52,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation "com.google.android.gms:play-services-location:17.0.0"
+    implementation 'ch.uepaa.p2p:p2pkit-android:2.1.3'
 }

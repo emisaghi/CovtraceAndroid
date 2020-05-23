@@ -1,5 +1,14 @@
+// Created by Covtrace on 2020-05-05.
+// Copyright © 2020 Covtrace. All rights reserved.
+// This file is subject to the terms and conditions defined in
+// file 'LICENSE.txt', which is part of this source code package.
+
+//  registerActivity.java
+//  Covtrace
+
 package com.covtracers.covtrace;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,6 +23,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -24,6 +35,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class registerActivity extends AppCompatActivity {
+    private static final int ERROR_DIALOG_REQUEST = 9001;
 
     private static final String TAG = "EmailPassword";
     EditText emailText, passwordText, confirmPasswordText;
@@ -95,7 +107,7 @@ public class registerActivity extends AppCompatActivity {
                 fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
+                        if (task.isSuccessful() && isServicesOK()) {
                             // Sign in success, go to the map
                             Log.d(TAG, "createUserWithEmail:success");
                             Toast.makeText(registerActivity.this, "User Created.", Toast.LENGTH_SHORT).show();
@@ -112,5 +124,20 @@ public class registerActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    public boolean isServicesOK() {
+        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(registerActivity.this);
+        if (available == ConnectionResult.SUCCESS) {
+            return true;
+        }
+        else if (GoogleApiAvailability.getInstance().isUserResolvableError(available)) {
+            Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(registerActivity.this, available, ERROR_DIALOG_REQUEST);
+            dialog.show();
+        }
+        else {
+            Toast.makeText(this, "Cannot make map requests", Toast.LENGTH_SHORT).show();
+        }
+        return false;
     }
 }
