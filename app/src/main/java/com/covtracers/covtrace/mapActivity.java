@@ -2,14 +2,19 @@ package com.covtracers.covtrace;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.location.Address;
 import android.content.pm.PackageManager;
+import android.location.Geocoder;
 import android.location.Location;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,7 +33,10 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import java.io.IOException;
 import java.sql.Connection;
+import java.util.List;
+import java.util.Locale;
 
 public class mapActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -41,6 +49,7 @@ public class mapActivity extends FragmentActivity implements OnMapReadyCallback 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
     private FusedLocationProviderClient mFusedLocationProviderClient;
     private static final float DEFAULT_ZOOM = 15f;
+    TextView textView1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +67,10 @@ public class mapActivity extends FragmentActivity implements OnMapReadyCallback 
                 startActivity(intent);
             }
         });
+        textView1 = findViewById(R.id.text_view1);
+        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+
+
     }
 
     private void initMap() {
@@ -77,6 +90,16 @@ public class mapActivity extends FragmentActivity implements OnMapReadyCallback 
                         if (task.isSuccessful()) {
                             Location currentLocation = (Location) task.getResult();
                             moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()), DEFAULT_ZOOM);
+                            if (currentLocation != null) {
+                                Geocoder geocoder = new Geocoder(mapActivity.this, Locale.getDefault());
+                                try {
+                                    List<Address> addresses = geocoder.getFromLocation(currentLocation.getLatitude(), currentLocation.getLongitude(), 1);
+                                    textView1.setText(addresses.get(0).getAddressLine(0));
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
                         }
                         else {
                             Toast.makeText(mapActivity.this, "unable to get current location", Toast.LENGTH_SHORT).show();
@@ -107,11 +130,6 @@ public class mapActivity extends FragmentActivity implements OnMapReadyCallback 
             }
             mMap.setMyLocationEnabled(true);
         }
-
-        // Add a marker in Sydney, Australia, and move the camera.
-//        LatLng sydney = new LatLng(27.527853, 68.758755);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 
     private void moveCamera(LatLng latlng, float zoom) {
